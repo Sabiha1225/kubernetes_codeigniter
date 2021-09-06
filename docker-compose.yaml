@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    container_name: ci-app
+    image: ci-app:1.0.0
+    ports:
+      - 80:80

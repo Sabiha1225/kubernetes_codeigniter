@@ -1,0 +1,5 @@
+codeigniter-deployment.yaml
+.vscode
+.DS_Store
+Dockerfile
+docker-compose.yaml
