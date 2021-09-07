@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ci-app
+  namespace: ci-app
+  labels:
+    app: ci-app
+spec:
+  selector:
+    matchLabels:
+      app: ci-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ci-app
+    spec:
+      containers:
+        - name: ci-app
+          image: localhost:32000/ci-app:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+        - name: mysql
+          image: mysql:5.7
+          env:
+            - name: MYSQL_DATABASE
+              value: sample-db
+            - name: MYSQL_ALLOW_EMPTY_PASSWORD
+              value: 'yes'
+          ports:
+            - containerPort: 3306  
