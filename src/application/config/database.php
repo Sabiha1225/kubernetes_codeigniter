@@ -73,12 +73,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+//Here hostname 'db' points to the mysql container name (for docker)
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'sample-db',
+	'hostname' => 'db:3306',
+	'username' => 'admin',
+	'password' => 'admin',
+	'database' => 'ciapp',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -94,13 +95,13 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-
+/*
 $default['failover'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'sample-db',
+	'hostname' => 'db:3306',
+	'username' => 'admin',
+	'password' => 'admin',
+	'database' => 'ciapp',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -116,3 +117,4 @@ $default['failover'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+*/
