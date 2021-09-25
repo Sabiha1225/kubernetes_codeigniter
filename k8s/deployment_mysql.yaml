@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ci-with-mysql-db
+  labels:
+    app: ci-with-mysql-db
+spec:
+  selector:
+    matchLabels:
+      app: ci-with-mysql-db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ci-with-mysql-db
+    spec:
+      containers:
+        - name: ci-with-mysql-db
+          image: mysql:5.7
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: admin
+            - name: MYSQL_DATABASE
+              value: ciapp
+            - name: MYSQL_USER
+              value: admin
+            - name: MYSQL_PASSWORD
+              value: admin
+          ports:
+            - containerPort: 3306  
