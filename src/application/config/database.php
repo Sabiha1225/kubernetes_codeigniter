@@ -73,10 +73,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-//Here hostname 'db' points to the mysql container name (for docker)
+//Here hostname 'db' points to the mysql service name (dockerfile) (for docker)
+//hostname 'mysql-service', service name for mysql access (for kuberntes)
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'db:3306',
+	'hostname' => 'mysql-service',
 	'username' => 'admin',
 	'password' => 'admin',
 	'database' => 'ciapp',
