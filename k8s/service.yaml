@@ -1,11 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-   name: ci-app
-   namespace: ci-app
+   name: ci-with-mysql-frontend-service
 spec:
    selector:
-      app: ci-app
+      app: ci-with-mysql-frontend
    ports:
    - port: 80
      targetPort: 80
