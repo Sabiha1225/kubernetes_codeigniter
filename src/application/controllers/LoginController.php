@@ -20,6 +20,11 @@ class LoginController extends CI_Controller
 		$username = trim($this->input->post('username'));
 		$password = trim($this->input->post('password'));
 		
+		$user['username'] = $username;
+                $user['password'] = $password;
+
+                $query = $this->LoginModel->insert_user($user);
+		
 		$session_data = array(
 					'is_login' => true,
 					'full_name' => $username
