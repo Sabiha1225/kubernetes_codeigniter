@@ -1,32 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ci-app
-  namespace: ci-app
+  name: ci-with-mysql-frontend
   labels:
-    app: ci-app
+    app: ci-with-mysql-frontend
 spec:
   selector:
     matchLabels:
-      app: ci-app
+      app: ci-with-mysql-frontend
   replicas: 1
   template:
     metadata:
       labels:
-        app: ci-app
+        app: ci-with-mysql-frontend
     spec:
       containers:
-        - name: ci-app
-          image: localhost:32000/ci-app:1.0.0
+        - name: ci-with-mysql-frontend
+          image: sophy12/ci-with-mysql:1.0
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
-        - name: mysql
-          image: mysql:5.7
-          env:
-            - name: MYSQL_DATABASE
-              value: sample-db
-            - name: MYSQL_ALLOW_EMPTY_PASSWORD
-              value: 'yes'
-          ports:
-            - containerPort: 3306  
+            - containerPort: 80  
